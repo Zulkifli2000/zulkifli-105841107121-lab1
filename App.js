@@ -1,5 +1,6 @@
 import { StyleSheet,Text,View,Image } from "react-native";
 import React from "react";
+import ButtonCostum from "./component/button/button";
 
 const App =() => {
   return(
@@ -21,7 +22,7 @@ const App =() => {
       justifyContent : 'center',
 
     }}>
-    <image source ={require( './Lazada.png.png')} />
+    <Image source ={require( './Lazada.png')} />
     </View>
 
     <View style={{
@@ -32,41 +33,8 @@ const App =() => {
       justifyContent : 'space-evenly'
 
     }}>
-      <View style={{
-        backgroundColor : 'blue',
-        width : 120,
-        height : 80,
-        borderRadius : 20,
-        justifyContent : 'center'
-
-      }}>
-        <text style={{
-          textAlign : 'center',
-          fontSize : 30,
-          color : 'green',
-          fontWeight : 'bold'
-        }}>Login
-        </text>
-      </View>
-
-
-      <View style={{
-        backgroundColor : 'yellow',
-        width : 120,
-        height : 80,
-        borderRadius : 20,
-        justifyContent : 'center'
-
-      }}>
-        <text style={{
-          textAlign : 'center',
-          fontSize : 30,
-          color : 'purple',
-          fontWeight : 'bold'
-        }}>sign up
-        </text>
-      </View>
-
+     <ButtonCostum Color='blue' text='login' />
+     <ButtonCostum Color='green' text='SignUp' />
     
     </View>
 
