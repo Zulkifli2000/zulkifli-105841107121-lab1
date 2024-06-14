@@ -1,45 +1,37 @@
-import { StyleSheet,Text,View,Image } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View, TextInput } from "react-native-web";
+import React  from "react";
 import ButtonCostum from "./component/button/button";
 
 const App =() => {
-  return(
-    <View style ={{flex : 1}}>
-      <View style={{
-        flex : 1,
-        alignItems : 'center',
-
-      }}>
-        <text style={{
-          fontSize : 50,
-          fontWeight :'bold'
-        }}> Lazada </text>
-      </View>
-
+const TextInputCustom = ({name, color}) => {
+  return (
+      <TextInput
+       placeholder={`Masukkan ${name}`}
+       style={{
+        height: 40,
+        width: 200,
+        borderColor: 'gray',
+        borderWidth:1,
+        color: color,
+        padding:10,
+        margin:10,
+        borderRadius:10,
+        paddingLeft: 10,
+       }}
+    />   
+  )
+}
+  return (
     <View style={{
-      flex : 1,
-      alignItems : 'center',
-      justifyContent : 'center',
-
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
     }}>
-    <Image source ={require( './Lazada.png')} />
+      <TextInputCustom name = "nama" color= "black"></TextInputCustom>
+      <TextInputCustom name = "email" color= "green"></TextInputCustom>
+      <TextInputCustom name = "password" color= "black"></TextInputCustom>
+      <ButtonCostum Text ="signUp" color ="white"></ButtonCostum>
     </View>
-
-    <View style={{
-      flex : 1,
-      alignItems : 'center',
-      justifyContent : 'center',
-      flexDirection : 'row',
-      justifyContent : 'space-evenly'
-
-    }}>
-     <ButtonCostum Color='blue' text='login' />
-     <ButtonCostum Color='green' text='SignUp' />
-    
-    </View>
-
-    </View>
-
   )
 }
 export default App
