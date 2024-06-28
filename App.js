@@ -1,37 +1,31 @@
-import { StyleSheet, Text, View, TextInput } from "react-native-web";
-import React  from "react";
-import ButtonCostum from "./component/button/button";
+import { useFonts } from 'expo-font';
+import { Text, View } from 'react-native-web';
 
-const App =() => {
-const TextInputCustom = ({name, color}) => {
-  return (
-      <TextInput
-       placeholder={`Masukkan ${name}`}
-       style={{
-        height: 40,
-        width: 200,
-        borderColor: 'gray',
-        borderWidth:1,
-        color: color,
-        padding:10,
-        margin:10,
-        borderRadius:10,
-        paddingLeft: 10,
-       }}
-    />   
-  )
-}
+export default function App() {
+  const [dapatFont] = useFonts({
+    'MetroBlack': require('./assets/font/Metropolis-Black.otf'),
+    'MetroBold': require('./assets/font/Metropolis-Bold.otf'),
+    'MetroLight': require('./assets/font/Metropolis-Light.otf'),
+    'MetroMedium': require('./assets/font/Metropolis-Medium.otf'),
+    'MetroSemiBold': require('./assets/font/Metropolis-SemiBold.otf'),
+  });
+
+  if (!dapatFont) {
+    return <Text> font tidak ditemukan ...</Text>
+  }
   return (
     <View style={{
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
+      flex: 1, 
+      justifyContent: "center", 
+      alignItems: "center",
+    
     }}>
-      <TextInputCustom name = "nama" color= "black"></TextInputCustom>
-      <TextInputCustom name = "email" color= "green"></TextInputCustom>
-      <TextInputCustom name = "password" color= "black"></TextInputCustom>
-      <ButtonCostum Text ="signUp" color ="white"></ButtonCostum>
+    <Text style = {{fontFamily : 'MetroBlack'}}> font metropolis black </Text>
+    <Text style = {{fontFamily : 'MetroBold'}}> font metropolis bold </Text>
+    <Text style = {{fontFamily : 'MetroLight'}}> font metropolis light </Text>
+    <Text style = {{fontFamily : 'MetroMedium'}}> font metropolis medium </Text>
+    <Text style = {{fontFamily : 'MetroSemiBold'}}> font metropolis SemiBold </Text>
     </View>
+
   )
 }
-export default App
