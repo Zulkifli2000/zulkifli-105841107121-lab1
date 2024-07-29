@@ -1,10 +1,10 @@
-import {Text, View, Image,} from 'react-native'
+import {Text, View, Image,TouchableOpacity} from 'react-native'
 import React from 'react'
 import TextInputCostum from './Components/TextInput/TextInput'
 import ButtonCostum from './Components/button/button'
 
 
-const App = () => {
+const App = ({navigation}) => {
   return(
     <View style = {{flex : 1}}>
       <View style = {{
@@ -38,6 +38,7 @@ const App = () => {
         <TextInputCostum name = "Nama"/>
         <TextInputCostum name = "Email"/>
         <TextInputCostum name = "Password"/>
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
         <Text style ={{
           fontSize : 14,
           fontWeight : 'bold',
@@ -48,6 +49,8 @@ const App = () => {
         }}>
           Already have an account?
         </Text>
+        </TouchableOpacity>
+        
         <ButtonCostum text = "SIGN UP" Color= 'red' />
 
       </View>
