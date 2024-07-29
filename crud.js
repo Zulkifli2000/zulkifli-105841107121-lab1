@@ -13,11 +13,11 @@ const Api = () => {
 
   useEffect(() => {
     fetchData();
-  }, [numPosts]);
+  }, []);
 
   const fetchData = () => {
     setLoading(true);
-    axios.get(`https://jsonplaceholder.typicode.com/posts?_limit=${numPosts}`)
+    axios.get('https://jsonplaceholder.typicode.com/posts?_limit=${numPosts}')
       .then((response) => {
         setData(response.data);
         setLoading(false);
@@ -29,11 +29,9 @@ const Api = () => {
   };
 
   const getPostById = () => {
-    if (postId) {
-      axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-        .then(response => setSinglePost(response.data))
-        .catch(error => console.error(error));
-    }
+    axios.get('https://jsonplaceholder.typicode.com/posts/${postId}')
+      .then(response => setSinglePost(response.data))
+      .catch(error => console.error(error));
   };
 
   const addPost = () => {
@@ -46,20 +44,18 @@ const Api = () => {
   };
 
   const deletePost = (id) => {
-    axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    axios.delete('https://jsonplaceholder.typicode.com/posts/${id}')
       .then(() => setData(data.filter(post => post.id !== id)))
       .catch(error => console.error(error));
   };
 
   const updateExistingPost = () => {
-    if (updatePost.id) {
-      axios.put(`https://jsonplaceholder.typicode.com/posts/${updatePost.id}`, updatePost)
-        .then(response => {
-          setData(data.map(post => (post.id === response.data.id ? response.data : post)));
-          setUpdatePost({ id: '', title: '', body: '' });
-        })
-        .catch(error => console.error(error));
-    }
+    axios.put('https://jsonplaceholder.typicode.com/posts/${updatePost.id}', updatePost)
+      .then(response => {
+        setData(data.map(post => (post.id === response.data.id ? response.data : post)));
+        setUpdatePost({ id: '', title: '', body: '' });
+      })
+      .catch(error => console.error(error));
   };
 
   if (loading) {
@@ -110,7 +106,7 @@ const Api = () => {
           </View>
         )}
       </View>
-      
+
       <View style={styles.form}>
         <Text>Add New Post:</Text>
         <TextInput
