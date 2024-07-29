@@ -1,32 +1,44 @@
-import * as React from 'react';
-import { View, Text, Button,} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Login from './Login'
-import SignUp from './SignUp'
-import Forgot from './Forgot'
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import React, { useState} from 'react';
+const App = () => {
+  const [formLogin, setForm] = useState({
+    email: '',
+    password: ''
+  })
 
-function Homescreen ({navigation}) {
+  const onSubmit = () => {
+    if (formLogin.email === 'zul' && formLogin.password === 'zul') {
+      alert('user sedang login')
+    } else {
+      alert ('login gagal')
+    }
+
+  }
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Home Screen</Text>
-      <Button title='ke halaman login' onPress={() => navigation.navigate('Login')}/>
+    <View style={{ flex: 1, justifyContent: 'center', padding: 20}}>
+      <Text>Form Login</Text>
+      <View>
+        <Text>Email</Text>
+        <TextInput
+          style={{ height: 40, borderColor: 'gray', borderWidth: 1}}
+          onChangeText={(hasil) => setForm({ ...formLogin, email: hasil })}
+          value={formLogin.email}
+        />
+        <Text>Password</Text>
+        <TextInput
+          style={{ height: 40, borderColor: 'gray', borderWidth: 1}}
+          onChangeText={(text) => setForm({ ...formLogin, password: text })}
+          value={formLogin.password}
+        />
+        <View style={{ marginTop: 10 }}>
+          <Button title="Login" onPress={onSubmit} />
+        </View>
+        <View>
+          <Text>Email: (formLogin.email)</Text>
+          <Text>Password: (formLogin.password)</Text>
+        </View>
+      </View>
     </View>
-  );
+  )
 }
-
-const Stack = createNativeStackNavigator();
-
-function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="SignUp" component={SignUp} option={{headerShown: false}} />
-        <Stack.Screen name="Login" component={Login} option={{headerShown: false}} />
-        <Stack.Screen name="Forgot" component={Forgot} option={{headerShown: false}} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
-
-export default App;
+export default App

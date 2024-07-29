@@ -6,10 +6,11 @@ import React from "react";
     return(
       <View style={{
         backgroundColor : Color,
-        width : 120,
-        height : 80,
-        borderRadius : 20,
-        justifyContent : 'center'
+        width : 450,
+        height : 50,
+        borderRadius : borderRadius,
+        justifyContent : 'center',
+        marginBottom: 10
 
       }}>
         <text style={{
@@ -22,6 +23,5 @@ import React from "react";
       </View>
     )
 }
-
 
 export default ButtonCostum
