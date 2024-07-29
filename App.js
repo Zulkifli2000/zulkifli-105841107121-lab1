@@ -30,6 +30,7 @@ const App = () => {
           onChangeText={(text) => setForm({ ...formLogin, password: text })}
           value={formLogin.password}
         />
+        
         <View style={{ marginTop: 10 }}>
           <Button title="Login" onPress={onSubmit} />
         </View>

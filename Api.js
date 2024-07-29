@@ -12,6 +12,7 @@ import SignUp from './SignUp'
 import Forgot from './Forgot'
 
 const Tab = createBottomTabNavigator();
+
 function MyTabs() {
   return (
     <Tab.Navigator>

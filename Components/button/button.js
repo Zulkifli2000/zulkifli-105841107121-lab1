@@ -11,7 +11,6 @@ import React from "react";
         borderRadius : borderRadius,
         justifyContent : 'center',
         marginBottom: 10
-
       }}>
         <text style={{
           textAlign : 'center',
